@@ -2,8 +2,14 @@ import { AbstractExperience } from '@soundworks/core/client';
 import { render, html } from 'lit-html';
 import renderInitializationScreens from '@soundworks/template-helpers/client/render-initialization-screens.js';
 
-class PlayerExperience extends AbstractExperience {
-  constructor(client, config, $container) {
+// TODO: Type and remove any
+class ControllerExperience extends AbstractExperience {
+
+  config = {};
+  $container : any;
+  rafId : any;
+
+  constructor(client : any, config : any, $container : any) {
     super(client);
 
     this.config = config;
@@ -36,4 +42,4 @@ class PlayerExperience extends AbstractExperience {
   }
 }
 
-export default PlayerExperience;
+export default ControllerExperience;

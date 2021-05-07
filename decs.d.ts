@@ -1,2 +1,5 @@
 declare module "@soundworks/core/server"
+declare module "@soundworks/core/client"
+declare module "@soundworks/template-helpers/client/render-initialization-screens.js"
+declare module "@soundworks/template-helpers/client/init-qos.js"
 declare module "template-literal"

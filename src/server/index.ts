@@ -4,8 +4,8 @@ import path from 'path';
 import serveStatic from 'serve-static';
 import compile from 'template-literal';
 
-import PlayerExperience from './PlayerExperience.js';
-import ControllerExperience from './ControllerExperience.js';
+import PlayerExperience from './PlayerExperience';
+import ControllerExperience from './ControllerExperience';
 
 import getConfig from './utils/getConfig.js';
 const ENV = process.env.ENV || 'default';
