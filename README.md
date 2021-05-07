@@ -1,4 +1,8 @@
-# `soundworks-template`
+# TypeScript `soundworks-template`
+
+This template is based on the original `soundworks-template` while supporting TypeScript in the developing process. The local `tsconfig.json` is used for the configuration. Please beware, that that `"noEmit": true` should be enabled to actually not build the output, but only to check it. 
+
+
 
 > Project template for developing [*soundworks*](https://github.com/collective-soundworks/soundworks/) applications.
 
