@@ -36,8 +36,6 @@ console.log(`
 // -------------------------------------------------------------------
 // server.stateManager.registerSchema(name, schema);
 
-var something : string = "hehe";
-
 (async function launch() {
   try {
     // @todo - check how this behaves with a node client...

@@ -5,10 +5,6 @@ import renderInitializationScreens from '@soundworks/template-helpers/client/ren
 // TODO: Type and remove any
 class ControllerExperience extends AbstractExperience {
 
-  config = {};
-  $container : any;
-  rafId : any;
-
   constructor(client : any, config : any, $container : any) {
     super(client);
 
