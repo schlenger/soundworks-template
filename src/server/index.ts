@@ -36,11 +36,12 @@ console.log(`
 // -------------------------------------------------------------------
 // server.stateManager.registerSchema(name, schema);
 
+var something : string = "hehe";
 
 (async function launch() {
   try {
     // @todo - check how this behaves with a node client...
-    await server.init(config, (clientType, config, httpRequest) => {
+    await server.init(config, (clientType : any, config : any, httpRequest : any) => {
       return {
         clientType: clientType,
         app: {
