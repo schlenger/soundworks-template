@@ -7,6 +7,10 @@ import compile from 'template-literal';
 import PlayerExperience from './PlayerExperience';
 import ControllerExperience from './ControllerExperience';
 
+import globalsSchema from './schemas/globals';
+import playerInputSchema from './schemas/playerInput';
+import controllerInputSchema from './schemas/controllerInput';
+
 import getConfig from './utils/getConfig.js';
 const ENV = process.env.ENV || 'default';
 const config = getConfig(ENV);
@@ -54,6 +58,12 @@ console.log(`
       };
     });
 
+    // Register schemas
+    server.stateManager.registerSchema('globals', globalsSchema);
+    server.stateManager.registerSchema('playerInput', playerInputSchema);
+    server.stateManager.registerSchema('controllerInput', controllerInputSchema);
+
+    // Register experiences
     const playerExperience = new PlayerExperience(server, 'player');
     const controllerExperience = new ControllerExperience(server, 'controller');
 

@@ -21,6 +21,11 @@ class ControllerExperience extends AbstractExperience {
     super.start();
 
     window.addEventListener('resize', () => this.render());
+
+    // Create a client side state
+    this.controllerInputState = await this.client.stateManager.create('controllerInput');
+    console.log('controllerInput:', this.controllerInputState.getValues());
+
     this.render();
   }
 
@@ -28,10 +33,14 @@ class ControllerExperience extends AbstractExperience {
     // debounce with requestAnimationFrame
     window.cancelAnimationFrame(this.rafId);
 
+    // TODO: 
+    // - We want to init the UI-Module adjustment views with the currently set global settings
+    // - Updates should be send to the ControllerExperience on the server side and distributed via the globals state
     this.rafId = window.requestAnimationFrame(() => {
       render(html`
         <div style="padding: 20px">
           <h1 style="margin: 20px 0">${this.client.type} [id: ${this.client.id}]</h1>
+          <input type="checkbox" name="applause-visible" @change=${ (e:any) => {this.controllerInputState.set({ applauseVisible: e.target.checked }); }}>
         </div>
       `, this.$container);
     });
