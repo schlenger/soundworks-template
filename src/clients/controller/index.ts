@@ -10,7 +10,7 @@ const config = window.soundworksConfig;
 const experiences = new Set();
 
 // TODO: Type and remove any
-async function launch($container : any, index : any) {
+async function launch($container : Element | null, index : number) {
   try {
     const client = new Client();
 
@@ -48,7 +48,7 @@ const $container = document.querySelector('#__soundworks-container');
 const searchParams = new URLSearchParams(window.location.search);
 // enable instanciation of multiple clients in the same page to facilitate
 // development and testing (be careful in production...)
-const numEmulatedClients = parseInt(searchParams.get('emulate') || "1") || 1;
+const numEmulatedClients = parseInt(searchParams.get('emulate') || "1");
 
 // special logic for emulated clients (1 click to rule them all)
 if (numEmulatedClients > 1) {
