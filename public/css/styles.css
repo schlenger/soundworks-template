@@ -28,6 +28,19 @@ body.loading {
   min-height: 100%;
 }
 
+/* Custom stuff */
+section,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 30px;
+}
+
+
 /** emulated clients */
 #__soundworks-container .emulate {
   float: left;

@@ -1,7 +1,13 @@
 // The current state of the displayed UI Modules
-export default {
-  applauseVisible: {
+import Utils from '../utils/utils';
+import controllerInputs from './controllerInput';
+
+// TODO: Check if this makes sense. Probably the controllerinputs are a superclass of the globals
+const globalsExension = {
+  isExension: {
     type: 'boolean',
-    default: false,
+    default: true
   },
 };
+
+export default Utils.merge(controllerInputs, globalsExension);

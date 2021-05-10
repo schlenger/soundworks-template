@@ -49,8 +49,25 @@ class PlayerExperience extends AbstractExperience {
       render(html`
         <div style="padding: 20px">
           <h1 style="margin: 20px 0">${this.client.type} [id: ${this.client.id}]</h1>
-          <h2 style="margin: 20px 0">${ JSON.stringify(this.currentGlobalsState)}</h2>
-          <input type="range" id="applause" .hidden=${!this.currentGlobalsState['applauseVisible']} min="0" max="1" @change=${ (e:any) => {this.playerInputState.set({ applause: parseInt(e.target.value) }); }}>
+
+          <!-- The stream -->
+          <section .hidden=${!this.currentGlobalsState['streamVisible']} >
+            <h3>Watch the stream</h3>
+            <iframe src="${this.currentGlobalsState['streamUrl']}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </section>
+          
+          <!-- Input: range slider -->
+          <section .hidden=${!this.currentGlobalsState['applauseVisible']} >
+            <h3>Applause</h3>
+            <input type="range" id="applause" min="0" max="1" step="0.1" @change=${ (e:any) => {this.playerInputState.set({ applause: parseInt(e.target.value) }); }}>
+          </section>
+
+          <!-- UI Element: text field -->
+          <section .hidden=${!this.currentGlobalsState['textFieldVisible']}>
+            <h3>${this.currentGlobalsState['textFieldHeading']}</h3>
+            <p>${this.currentGlobalsState['textFieldContent']}</p>
+          </section>
+
         </div>
       `, this.$container);
     });

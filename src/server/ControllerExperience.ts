@@ -50,6 +50,7 @@ class ControllerExperience extends AbstractExperience {
 
           // Bind the updates
           playerInputState.subscribe(async (updates : object) => {
+            // TODO Jens: Here is the entry point for user inputs
             console.log('updates from playerInputState and node ' + nodeId + ':', updates);
           });
           break;

@@ -39,10 +39,67 @@ class ControllerExperience extends AbstractExperience {
       render(html`
         <div style="padding: 20px">
           <h1 style="margin: 20px 0">${this.client.type} [id: ${this.client.id}]</h1>
-          <input type="checkbox" name="applause-visible" @change=${ (e:any) => {this.controllerInputState.set({ applauseVisible: e.target.checked }); }}>
+
+          <section>
+            <input type="checkbox" name="stream-visible" @change=${ (e:any) => {this.controllerInputState.set({ streamVisible: e.target.checked }); }}>
+            <label>Stream visible</label><br>
+
+            <label>Stream URL</label><br>
+            <input type="text" name="stream-url" @change=${ (e:any) => {this.controllerInputState.set({ streamUrl: e.target.value }); }}><br>
+          </section>
+
+          <section>
+            <input type="checkbox" name="applause-visible" @change=${ (e:any) => {this.controllerInputState.set({ applauseVisible: e.target.checked }); }}>
+            <label>Applause visible</label>
+          </section>
+
+          <section>
+            <input type="checkbox" name="text-field-visible" @change=${ (e:any) => {this.controllerInputState.set({ textFieldVisible: e.target.checked }); }}>
+            <label>Text field visible</label><br>
+
+            <label>Text field: Heading</label><br>
+            <input type="text" name="text-field-heading" @change=${ (e:any) => {this.controllerInputState.set({ textFieldHeading: e.target.value }); }}><br>
+
+            <label>Text field: Content</label><br>
+            <input type="text" name="text-field-content" @change=${ (e:any) => {this.controllerInputState.set({ textFieldContent: e.target.value }); }}>
+          </section>
         </div>
       `, this.$container);
     });
+
+    const testDataModelSuggestion = {
+      modules : [
+        {
+          name: "applause",
+          type: "one-dimensional-slider",
+          active: true,
+          options: {
+            labelStart: "Slow clap",
+            content: "Awesome applause"
+          },
+          outputChannels: [
+            {
+              type: "midi|osc",
+              channel: 1, // as integer
+              aggregation: {
+                type: "none|median|average",
+                filterLength: 10 // as integer | -1 = all available data
+              }
+            }
+          ] 
+        },
+        {
+          name: "text",
+          type: "text-view",
+          active: true,
+          options: {
+            heading: "Some heading",
+            content: "Lorem ipsum dolor..."
+          },
+          outputChannels: [] 
+        }
+      ]
+    }
   }
 }
 
