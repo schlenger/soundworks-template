@@ -2,9 +2,9 @@ import { AbstractExperience } from '@soundworks/core/client';
 import { render, html } from 'lit-html';
 import renderInitializationScreens from '@soundworks/template-helpers/client/render-initialization-screens.js';
 
-// TODO: Type and remove any
 class PlayerExperience extends AbstractExperience {
-  constructor(client : any, config : any, $container : any) {
+
+  constructor(client : any, config : any, $container : Element | null) {
     super(client);
 
     this.config = config;
