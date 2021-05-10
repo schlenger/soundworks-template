@@ -61,7 +61,8 @@ class ControllerExperience extends AbstractExperience {
             <input type="text" name="text-field-heading" @change=${ (e:any) => {this.controllerInputState.set({ textFieldHeading: e.target.value }); }}><br>
 
             <label>Text field: Content</label><br>
-            <input type="text" name="text-field-content" @change=${ (e:any) => {this.controllerInputState.set({ textFieldContent: e.target.value }); }}>
+            <textarea name="text-field-content" rows="4" @change=${ (e:any) => {this.controllerInputState.set({ textFieldContent: e.target.value }); }} />
+            <!--input type="text" name="text-field-content" @change=${ (e:any) => {this.controllerInputState.set({ textFieldContent: e.target.value }); }}-->
           </section>
         </div>
       `, this.$container);
