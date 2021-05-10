@@ -5,15 +5,6 @@ import initQoS from '@soundworks/template-helpers/client/init-qos.js';
 
 import PlayerExperience from './PlayerExperience';
 
-// Make sure to extend the window interface
-// based on https://stackoverflow.com/questions/56457935/typescript-error-property-x-does-not-exist-on-type-window
-// TODO: Check if this could be placed somewhere better
-declare global {
-  interface Window {
-    soundworksConfig : any;
-  }
-}
-
 const config = window.soundworksConfig;
 // store experiences of emulated clients
 const experiences = new Set();

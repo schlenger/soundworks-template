@@ -16,7 +16,9 @@ const ENV = process.env.ENV || 'default';
 const config = getConfig(ENV);
 const server = new Server();
 
+// TODO delete this when Soundworks Core gets TS support
 // We need to declare this in the global scope to use it in clients/*Experience.ts
+// based on https://stackoverflow.com/questions/56457935/typescript-error-property-x-does-not-exist-on-type-window
 declare global {
     interface Window {
       soundworksConfig : any;
