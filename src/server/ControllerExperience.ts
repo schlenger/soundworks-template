@@ -1,10 +1,8 @@
 import { AbstractExperience } from '@soundworks/core/server';
 
-// TODO: Type and remove any
 class ControllerExperience extends AbstractExperience {
-  constructor(server : any, clientTypes : any, options = {}) {
+  constructor(server : any, clientTypes : string, options = {}) {
     super(server, clientTypes);
-
   }
 
   start() {

@@ -9,7 +9,6 @@ const config = window.soundworksConfig;
 // store experiences of emulated clients
 const experiences = new Set();
 
-// TODO: Type and remove any
 async function launch($container : Element | null, index : number) {
   try {
     const client = new Client();
@@ -64,7 +63,7 @@ if (numEmulatedClients > 1) {
   $initPlatformBtn.classList.add('init-platform');
   $initPlatformBtn.textContent = 'resume all';
 
-  function initPlatforms(e : any) {
+  function initPlatforms(e : Event) {
     experiences.forEach((experience : any) => {
       if (experience.platform) {
         experience.platform.onUserGesture(e)

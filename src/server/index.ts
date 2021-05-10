@@ -12,6 +12,13 @@ const ENV = process.env.ENV || 'default';
 const config = getConfig(ENV);
 const server = new Server();
 
+// We need to declare this in the global scope to use it in clients/*Experience.ts
+declare global {
+    interface Window {
+      soundworksConfig : any;
+    }
+  }
+
 // html template and static files (in most case, this should not be modified)
 server.templateEngine = { compile };
 server.templateDirectory = path.join('.build', 'server', 'tmpl');

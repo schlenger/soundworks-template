@@ -2,10 +2,10 @@ import fs from 'fs';
 import JSON5 from 'json5';
 import path from 'path';
 
-function getConfig(ENV) {
+function getConfig(ENV: string) {
   let envConfig = null;
   let appConfig = null;
-  let servicesConfig = null;
+  //let servicesConfig = null;
   // parse env config
   try {
     const envConfigPath = path.join('config', 'env', `${ENV}.json`);
